@@ -1,71 +1,97 @@
 # CampusConnect
 
-Full-stack campus platform for student life: placements, marketplace, accommodations, study tooling, and an AI-assisted career counselor.
+A full-stack campus platform designed to improve student life by bringing together job opportunities, student marketplaces, accommodation services, study management tools, and AI-powered career guidance.
 
-## Core features
+## Project Overview
 
-- **Job portal** — Browse internships and part-time roles, apply with CV upload, and track application status.
-- **Admin hiring console** — Review applications grouped by company; separate **internship** vs **part-time** queues; filter by **job category** and status; approve or reject with API persistence where applicable.
-- **Student dashboard** — Dashboard layout with quick actions, events, trending content, and part-time job cards.
-- **AI career counselor** — Google Gemini-backed chat grounded in live job listings, with a safe fallback when the API is unavailable or over quota (useful for demos).
-- **Marketplace** — Student item listings and service shops with admin moderation.
-- **Accommodations & chat** — Listings and messaging between students and owners.
-- **Time management** — Assignments, study sessions, and exams scoped to the logged-in user.
-- **Q&A forum** — Category-tagged questions for peer support.
+CampusConnect is a university-focused web application that provides students with a centralized platform to access academic and campus-related services. It helps students discover opportunities, buy and sell academic items, connect with others, manage their studies, and access career guidance.
 
-## Tech stack
+## Key Features
+
+- **Job Portal** – Browse internships and part-time opportunities, apply with CV uploads, and track application status.
+- **Admin Hiring Console** – Manage job applications, review candidates, and approve or reject applications.
+- **Student Dashboard** – Access quick actions, events, trending content, and job opportunities.
+- **AI Career Counselor** – Get career guidance through an AI-powered chat using Google Gemini API.
+- **Campus Marketplace** – Buy and sell academic-related items within the student community.
+- **Small Business Stores** – Provides small business owners with an opportunity to create stores and showcase their products for sale.
+- **Accommodation & Chat** – Explore accommodation listings and communicate with property owners.
+- **Time Management** – Manage assignments, study sessions, and examinations.
+- **Q&A Forum** – Share questions and help other students through a category-based discussion platform.
+
+## My Contribution – Campus Marketplace
+
+I contributed to the development of the Campus Marketplace component, focusing on providing a platform for students to buy and sell academic-related items.
+
+My responsibilities included:
+
+- Implementing item creation and listing functionality.
+- Developing item update and deletion functionality.
+- Implementing item search functionality.
+- Developing a marketplace experience for buying and selling academic-related products.
+- Creating a dedicated store feature to support small business owners in showcasing and selling their products.
+
+## Technology Stack
 
 | Layer | Technologies |
-|--------|----------------|
-| **Frontend** | React 18, Vite 7, React Router 7, Tailwind CSS, Framer Motion, Lucide React, Socket.io client, Axios |
-| **Backend** | Node.js, Express, MongoDB (Mongoose), CORS, Multer (file uploads) |
-| **AI** | Google Gemini API (`GEMINI_API_KEY`) for the career counselor |
+|---|---|
+| Frontend | React 18, Vite, React Router, Tailwind CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| AI Integration | Google Gemini API |
+| Other Tools | Axios, Socket.io, Multer, Framer Motion |
 
-## Repository layout
+## Repository Structure
 
-- `frontend/` — Vite + React SPA (`npm run dev`, `npm run build`).
-- `backend/` — Express API (`server.js`), controllers, Mongoose models, and `uploads/` for user files (keep this directory out of version control for production data).
+- `frontend/` – React frontend application.
+- `backend/` – Node.js and Express backend API.
 
 ## Prerequisites
 
-- **Node.js** 18+ recommended  
-- **MongoDB** (Atlas URI or local instance)
+- Node.js 18 or later
+- MongoDB (local or MongoDB Atlas)
+- Google Gemini API key (for AI career counselor functionality)
 
-## Environment variables
+## Environment Variables
 
-### Backend (`backend/.env`)
+### Backend
 
-Create a `.env` file next to `server.js`. Example keys (names may match your team’s existing setup):
+Create a `.env` file inside the `backend/` directory.
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://USER:PASSWORD@cluster.example.mongodb.net/campusconnect
-JWT_SECRET=use_a_long_random_string
-GEMINI_API_KEY=your_google_ai_studio_key
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Without `GEMINI_API_KEY`, the AI counselor route still responds using the built-in presentation fallback.
+### Frontend
 
-### Frontend (`frontend/.env` or `.env.local`)
-
-For non-localhost deployments, set the API origin (see `frontend/src/utils/apiBase.ts`):
+Create a `.env` or `.env.local` file inside the `frontend/` directory if required.
 
 ```env
-VITE_API_URL=https://your-api.example.com
+VITE_API_URL=http://localhost:5000
 ```
 
-On `localhost`, the app defaults to `http://localhost:5000` unless overridden.
+## Installation and Setup
 
-## Run locally
+### 1. Clone the Repository
 
-**Backend** — from the `backend` folder, install dependencies (add a `package.json` if your fork uses one), then start:
+```bash
+git clone https://github.com/dileshani12/CampusConnect.git
+cd CampusConnect
+```
+
+### 2. Set Up the Backend
 
 ```bash
 cd backend
+npm install
 node server.js
 ```
 
-**Frontend:**
+### 3. Set Up the Frontend
+
+Open another terminal:
 
 ```bash
 cd frontend
@@ -73,8 +99,13 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (typically `http://localhost:5173`).
+Open the local URL provided by Vite in your browser.
 
-## Optional: seed data
+## Project Type
 
-If your clone includes `backend/seed.js`, run it once to create a default admin user. Check that file for the exact email and password printed to the console.
+University Group Project – Third Year
+
+This repository is a fork of the original team project repository by Anuk Cooray.
+
+Original Repository: https://github.com/Anuk-Cooray/CampusConnect
+
